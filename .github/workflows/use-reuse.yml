@@ -64,6 +64,8 @@ jobs:
         with:
           name: public-files
           path: public
+      - name: List Files
+        run: ls
   deploy:
     needs: build
     uses: ./.github/workflows/reusable.yml # calling another work flow
