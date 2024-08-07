@@ -67,6 +67,8 @@ jobs:
   deploy:
     needs: build
     uses: ./.github/workflows/reusable.yml # calling another work flow
+    with:
+        artifact-name: public-files
 
   report:
     needs: [lint, deploy]
