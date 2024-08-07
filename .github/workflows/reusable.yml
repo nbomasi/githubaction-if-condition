@@ -1,0 +1,8 @@
+name: Reusable Deploy
+on: workflow_call # this allow calling from workflow
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: output info
+              run: echo "Deploying anf uploading..."
