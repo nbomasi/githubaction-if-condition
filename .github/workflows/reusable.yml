@@ -8,6 +8,13 @@ on:
                 required: false
                 default: public
                 type: string
+        outputs:
+            result:
+                description: The result of the deployment operation
+                value: ${{ jobs.deploy.outputs.outcome}}
+        # secrets: # useful if you intend that the workflow calling it need a bit of security
+        #     some-secrete:
+        #         required: false
   
 jobs:
     deploy:
