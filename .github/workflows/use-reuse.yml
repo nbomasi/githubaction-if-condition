@@ -67,11 +67,11 @@ jobs:
       - name: Verify artifact upload
         run: echo "Artifact 'public-files' uploaded successfully."
 
-  # deploy:
-  #   needs: build
-  #   uses: ./.github/workflows/reusable.yml # calling another work flow
-  #   with:
-  #       artifact-name: public-files
+  deploy:
+    needs: build
+    uses: ./.github/workflows/reusable.yml # calling another work flow
+    with:
+        artifact-name: public-files
 
   deploy2:
     needs: build
@@ -81,6 +81,8 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: public-files
+      - name: List downloaded content
+        run: ls
 
   report:
     needs: [lint]
